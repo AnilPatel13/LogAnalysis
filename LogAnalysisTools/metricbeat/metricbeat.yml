@@ -1,0 +1,40 @@
+metricbeat.modules:
+- module: system
+  metricsets:
+    - cpu
+    - filesystem
+    - memory
+    - network
+    - process
+    - load
+    - process_summary
+    - core
+    - diskio
+    - fsstat
+  enabled: true
+  period: 10s
+  processes: ['.*']
+  cpu_ticks: false
+ 
+metricbeat.modules:
+- module: mysql
+  metricsets: ["status"]
+  hosts: ["tcp(192.168.1.x:3306)/"]
+  username: root
+  password: root
+ 
+metricbeat.modules:
+- module: zookeeper
+  metricsets: ["mntr"]
+  period: 10s
+  hosts: ["192.168.1.x:2181"]
+     
+output.kafka:
+    hosts: ["192.168.1.x:9092"]
+    topic: 'metricbeat'
+    partition.round_robin:
+      reachable_only: false
+ 
+    required_acks: 1
+    compression: gzip
+    max_message_bytes: 1000000

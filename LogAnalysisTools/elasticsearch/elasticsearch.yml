@@ -1,0 +1,10 @@
+cluster.name: escluster
+node.name: "master"
+path.data: /home/data/elasticsearch-6.1.1
+path.logs: /home/logs/elasticsearch-6.1.1/logs
+bootstrap.memory_lock: true
+network.host: 192.168.1.x
+discovery.zen.ping.unicast.hosts: ["192.168.1.x:9200"]
+discovery.zen.minimum_master_nodes: 1
+http.cors.enabled: true
+http.cors.allow-origin: /https?:\/\/192.168.1.x(:[0-9]+)?/

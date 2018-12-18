@@ -1,0 +1,20 @@
+input {
+kafka {
+bootstrap_servers => ["192.168.1.x:9092"]
+topics => "packetbeat"
+auto_offset_reset => "latest"
+codec => json {}
+}
+}
+output {
+ stdout
+       {
+         codec => rubydebug
+       }
+
+ elasticsearch {
+        hosts => ["192.168.1.x:9200"]
+        index  => "packetbeat"
+        sniffing => false
+    }
+ }

@@ -1,0 +1,8 @@
+server.port: 5601
+server.host: "192.168.1.x"
+server.name: "master"
+elasticsearch.url: "http://192.168.1.x:9200"
+kibana.index: "logstash-log"
+pid.file: /home/logs/kibana-6.1.1-linux-x86_64/kibana.pid
+logging.dest: /home/stack/logs/kibana-6.1.1-linux-x86_64/logs/kibana.log
+
